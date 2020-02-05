@@ -34,3 +34,19 @@ from [order] as o
     join employee as em
     on o.employeeid = em.id
 order by em.lastname, cu.companyname;
+
+--Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+
+select c.categoryname, count(p.productname)
+from categories as c
+    join products as p
+    on c.categoryid = p.categoryid
+group by c.categoryname
+
+--Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+
+select od.orderid, count(p.unit) as ItemCount
+from OrderDetails as od
+    join products as p
+    on od.ProductID = p.ProductID
+group by p.unit

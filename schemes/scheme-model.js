@@ -25,6 +25,7 @@ function findSteps(id) {
       .join("schemes as s", "s.id", "st.scheme_id")
       .select("st.id", "s.scheme_name", "st.step_number", "st.instructions")
       // .where({ scheme_id: id });
+      //.where("scheme_id", id)
       .where("st.scheme_id", id)
   );
 }
@@ -43,4 +44,10 @@ function remove(id) {
   return db("schemes")
     .where({ id })
     .del();
+}
+
+function addStep(step, scheme_id) {
+  return db("steps as st")
+    .join("schemes as s", "s.id", "st.scheme_id")
+    .insert();
 }

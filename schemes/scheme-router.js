@@ -87,9 +87,6 @@ router.put("/:id", (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
-  console.log("change: ", changes);
-  console.log("id", id);
-
   Schemes.findById(id)
     .then(scheme => {
       if (scheme) {
