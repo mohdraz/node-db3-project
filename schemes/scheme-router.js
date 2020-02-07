@@ -122,4 +122,30 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+// router.post("/:id/addStep", (req, res) => {
+//   const { id } = req.params;
+//   console.log("scheme id: ", id);
+
+//   const stepData = req.body;
+//   stepData.scheme_id = id;
+
+//   Schemes.findById(id)
+//   .then(scheme => {
+//     if(scheme) {
+//       Schemes.addStep(stepData)
+//       .then(newStep => {
+//         res.status(201).json(newStep)
+//       })
+//       .catch(err => {
+//         res.status(500).json({
+//           message: 'error adding the step'
+//         })
+//       })
+//     } else {
+//       res.status(404).json({message: 'the post with the does not exits' })
+//     }
+//   })
+
+// });
+
 module.exports = router;
